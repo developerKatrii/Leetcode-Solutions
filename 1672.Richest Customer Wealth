@@ -1,0 +1,25 @@
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+
+        //setting a default value
+        int max=Integer.MIN_VALUE;
+
+        //person is the row and account is the column
+        //iterating each value of 2D array accounts to a 1D array arr
+        for(int[] arr:accounts){
+
+            int sum=0;
+
+            //iterating each bank acct of person and taking its sum
+
+            for(int acc:arr){
+                sum+=acc;
+            } 
+            if(sum>max){
+                max=sum;
+            }
+        }
+
+        return max;
+    }
+}
