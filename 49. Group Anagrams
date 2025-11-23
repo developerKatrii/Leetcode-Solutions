@@ -1,0 +1,41 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        
+   
+        
+        //1. creating hashmap to store key and values
+        // key contains signature and value contains words having same signature(key)
+
+        HashMap<String,List<String>> map=new HashMap<>();
+        //2. Iterating through each string word in the strs[] string array
+
+        for(String s:strs){
+
+            //3. converting each string word into charArray
+
+            char arr[]=s.toCharArray();
+            //4. Storing the sorted char array as the key after converting it back to string
+
+            Arrays.sort(arr);
+            String key=new String(arr);
+
+//5. if the key is already present add that string s 
+// to the values under that specific key
+            if(map.containsKey(key)){
+                map.get(key).add(s);
+            }
+            else{
+                //6. if key not already present, add that key 
+                //  to a new arraylist and then add its corresponding strings
+                map.put(key, new ArrayList<>());
+                 map.get(key).add(s);
+            }
+        }
+
+        return new ArrayList<>(map.values());
+
+
+
+        
+    }
+}
